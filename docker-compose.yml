@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    image: php:8.0-rc-apache
+    volumes:
+      - ./directory_traversal:/var/www/html/directory_traversal
+    ports:
+      - 9001:80
