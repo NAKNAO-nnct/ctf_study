@@ -2,7 +2,7 @@
 
 $file = $_GET['file'];
 if (empty($file)) {
-    $file = 'default.txt';
+    $file = 'default.html';
 }
 
 include("./template/" . $file);
