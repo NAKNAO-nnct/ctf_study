@@ -1,8 +1,18 @@
 version: '3'
 services:
   app:
-    image: php:8.0-rc-apache
+    build: 
+      context: ./server
+      dockerfile: Dockerfile.php
     volumes:
-      - ./directory_traversal:/var/www/html/directory_traversal
+      - ./src:/var/www/html
     ports:
       - 9001:80
+  db:
+      image: mysql
+      volumes:
+        - ./server/mysql/data:/var/lib/mysql
+      ports:
+        - "3306:3306"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
